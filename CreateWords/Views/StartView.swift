@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  StartView.swift
 //  CreateWords
 //
 //  Created by Антон Макаров on 15.07.2022.
@@ -11,6 +11,8 @@ struct StartView: View {
     @State var bigWord = ""
     @State var player1 = ""
     @State var player2 = ""
+
+    @State var isShowedGame = false
 
     var body: some View {
         VStack {
@@ -30,7 +32,7 @@ struct StartView: View {
                 .padding(.horizontal,20)
 
             Button(action: {
-                print("hello")
+                isShowedGame.toggle()
             }, label: {
                 Text("Start")
                     .font(.custom("AvenirNext-bold", size: 30))
@@ -45,7 +47,10 @@ struct StartView: View {
         }
         .background(Image("BGRedBlue"))
         .padding(.top,5)
-
+        .fullScreenCover(isPresented: $isShowedGame,
+                         content: {
+            GameView()
+        })
     }
 }
 

@@ -13,6 +13,7 @@
 		E2E6E6E328819F2900C7C191 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E6E6E228819F2900C7C191 /* Preview Assets.xcassets */; };
 		E2E6E6EB2881ADDD00C7C191 /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6E6EA2881ADDD00C7C191 /* TitleText.swift */; };
 		E2E6E6ED2881AF0100C7C191 /* WordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6E6EC2881AF0100C7C191 /* WordTextField.swift */; };
+		E2E6E6EF2881B36100C7C191 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6E6EE2881B36100C7C191 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		E2E6E6E228819F2900C7C191 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E2E6E6EA2881ADDD00C7C191 /* TitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
 		E2E6E6EC2881AF0100C7C191 /* WordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTextField.swift; sourceTree = "<group>"; };
+		E2E6E6EE2881B36100C7C191 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				E2E6E6DB28819F2800C7C191 /* CreateWordsApp.swift */,
-				E2E6E6DD28819F2800C7C191 /* StartView.swift */,
+				E2E6E6F02881B37C00C7C191 /* Views */,
 				E2E6E6E92881ADC300C7C191 /* Components */,
 				E2E6E6DF28819F2900C7C191 /* Assets.xcassets */,
 				E2E6E6E128819F2900C7C191 /* Preview Content */,
@@ -79,6 +81,15 @@
 				E2E6E6EC2881AF0100C7C191 /* WordTextField.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E2E6E6F02881B37C00C7C191 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2E6E6DD28819F2800C7C191 /* StartView.swift */,
+				E2E6E6EE2881B36100C7C191 /* GameView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 				E2E6E6EB2881ADDD00C7C191 /* TitleText.swift in Sources */,
 				E2E6E6DC28819F2800C7C191 /* CreateWordsApp.swift in Sources */,
 				E2E6E6ED2881AF0100C7C191 /* WordTextField.swift in Sources */,
+				E2E6E6EF2881B36100C7C191 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
