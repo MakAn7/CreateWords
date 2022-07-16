@@ -34,14 +34,15 @@ struct StartView: View {
             Button(action: {
                 isShowedGame.toggle()
             }, label: {
-                Text("Start")
+                Text("Старт")
                     .font(.custom("AvenirNext-bold", size: 30))
                     .foregroundColor(.white)
                     .padding()
-                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
                     .background(Color("FirstPlayer"))
                     .cornerRadius(12)
                     .padding(.top, 20)
+                    .padding(.horizontal, 20)
             })
             Spacer()
         }
