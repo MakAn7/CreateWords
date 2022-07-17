@@ -10,6 +10,8 @@ import SwiftUI
 struct GameView: View {
     @State var word = ""
 
+    var viewModel: GameViewModel
+
     var body: some View {
         VStack(spacing: 16) {
             HStack {
@@ -28,14 +30,14 @@ struct GameView: View {
                     .padding(.trailing, 10)
             }
 
-            Text("Синхрофазатрон")
+            Text("\(viewModel.baseWord)")
                 .padding(.horizontal, 10)
                 .font(.custom("AvenirNext-bold", size: 40))
 
             HStack(alignment: .center, spacing: 20) {
                 VStack {
-                    Text("0")
-                    Text("Вася")
+                    Text("\(viewModel.player1.score)")
+                    Text("\(viewModel.player1.name)")
                 }
 
                 .frame(width: screen.width / 2.2,
@@ -48,8 +50,8 @@ struct GameView: View {
                         y: 0)
 
                 VStack {
-                    Text("0")
-                    Text("Петя")
+                    Text("\(viewModel.player2.score)")
+                    Text("\(viewModel.player2.name)")
                 }
                 .frame(width: screen.width / 2.2,
                        height: screen.width / 2.2)
@@ -69,8 +71,10 @@ struct GameView: View {
                 .padding(.horizontal, 10)
 
             Button(action: {
-                print("append current word")
-                word = ""
+               let score = viewModel.check(currentWord: word)
+                if score > 1 {
+                    word = ""
+                }
             }, label: {
                 Text("Готово")
                     .foregroundColor(.white)
@@ -93,6 +97,10 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(viewModel: GameViewModel(
+            player1: Player(name: "Вася"),
+            player2: Player(name: "Федя"),
+            baseWord: "Квадракоптер")
+        )
     }
 }

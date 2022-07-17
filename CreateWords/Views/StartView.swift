@@ -9,8 +9,8 @@ import SwiftUI
 
 struct StartView: View {
     @State var bigWord = ""
-    @State var player1 = ""
-    @State var player2 = ""
+    @State var nameFirstPlayer = ""
+    @State var nameSecondPlayer = ""
 
     @State var isShowedGame = false
 
@@ -23,11 +23,11 @@ struct StartView: View {
                 .padding(20)
                 .padding(.top, 10)
 
-            WordTextField(word: $player1, placeholder: "Игрок № 1")
+            WordTextField(word: $nameFirstPlayer, placeholder: "Игрок № 1")
                 .cornerRadius(12)
                 .padding(20)
 
-           WordTextField(word: $player2, placeholder: "Игрок № 2")
+           WordTextField(word: $nameSecondPlayer, placeholder: "Игрок № 2")
                 .cornerRadius(12)
                 .padding(.horizontal,20)
 
@@ -50,7 +50,10 @@ struct StartView: View {
         .padding(.top,5)
         .fullScreenCover(isPresented: $isShowedGame,
                          content: {
-            GameView()
+            let player1 = Player(name: nameFirstPlayer)
+            let player2 = Player(name: nameSecondPlayer)
+            let gameViewModel = GameViewModel(player1: player1, player2: player2, baseWord: bigWord)
+            GameView(viewModel: gameViewModel)
         })
     }
 }
