@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GameView: View {
     @State var word = ""
+    @State var confermPresent = false
+    @Environment(\.dismiss) var dismiss
 
     var viewModel: GameViewModel
 
@@ -17,7 +19,7 @@ struct GameView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    print("go to StartView")
+                    confermPresent.toggle()
                 }, label: {
                     Text("Выход")
                         .font(.custom("AvenirNext-bold", size: 30))
@@ -71,7 +73,7 @@ struct GameView: View {
                 .padding(.horizontal, 10)
 
             Button(action: {
-               let score = viewModel.check(currentWord: word)
+                let score = viewModel.check(currentWord: word)
                 if score > 1 {
                     word = ""
                 }
@@ -92,6 +94,23 @@ struct GameView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .background(Image("BGRedBlue"))
+        .confirmationDialog(
+            "Вы точно хотите завершить игру ?",
+            isPresented: $confermPresent,
+            titleVisibility: .visible,
+            actions: {
+                Button(role: .destructive,
+                       action: {
+                    self.dismiss()
+                }, label: {
+                    Text("Да")
+                })
+                Button(role: .cancel,
+                       action: {
+                }, label: {
+                    Text("Нет")
+                })
+            })
     }
 }
 
