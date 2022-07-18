@@ -93,6 +93,7 @@ class GameViewModel: ObservableObject {
     }
 
 
+
     // MARK: - Private func
     private func appendWordToGame(word: String) {
         wordsInGame.append(word)

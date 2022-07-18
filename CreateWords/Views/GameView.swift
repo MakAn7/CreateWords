@@ -47,8 +47,8 @@ struct GameView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color("FirstPlayer"))
                 .cornerRadius(12)
-                .shadow(color: .red,
-                        radius: 4,
+                .shadow(color: viewModel.isFirst ? .clear : .red,
+                        radius: 10,
                         x: 0,
                         y: 0)
                 
@@ -59,8 +59,8 @@ struct GameView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color("SecondPlayer"))
                 .cornerRadius(12)
-                .shadow(color: .yellow,
-                        radius: 4,
+                .shadow(color: viewModel.isFirst ? .blue : .clear,
+                        radius: 10,
                         x: 0,
                         y: 0)
             }
