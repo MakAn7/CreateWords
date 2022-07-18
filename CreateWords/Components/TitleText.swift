@@ -13,11 +13,11 @@ struct TitleText: View {
     var body: some View {
         Text(text)
             .padding()
-            .font(.custom("AvenirNext-bold", size: 42))
+            .font(.custom("AvenirNext-bold", size: 35))
             .cornerRadius(20)
             .frame(maxWidth: .infinity)
-            .background(Color("FirstPlayer"))
             .foregroundColor(.yellow)
+            .background(Color("FirstPlayer"))
     }
 }
 

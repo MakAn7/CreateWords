@@ -7,6 +7,14 @@
 
 import Foundation
 
+enum WordError: Error {
+    case identicalWord
+    case smallWord
+    case beforeWord
+    case wrongWord
+    case undefinedError
+}
+
 class GameViewModel: ObservableObject {
 
     //MARK: - Published property
@@ -23,26 +31,22 @@ class GameViewModel: ObservableObject {
         self.baseWord = baseWord.uppercased()
     }
     
-//MARK: - Public func
-    func validate(currentWord: String) -> Bool {
+    //MARK: - Public func
+    func validate(currentWord: String) throws  {
         let word = currentWord.uppercased()
 
         guard word != baseWord else {
-            print("слово не может быть таким же как основное")
-            return false
+            throw WordError.identicalWord
         }
 
         guard !(wordsInGame.contains(word)) else {
-            print("Слово уже было названо")
-            return false
+            throw WordError.beforeWord
         }
 
         guard word.count > 1 else {
-            print("слишком короткое слово")
-            return false
+            throw WordError.smallWord
         }
-
-        return true
+        return
     }
 
     func changeWordToChars(currentWord: String) -> [Character] {
@@ -53,10 +57,11 @@ class GameViewModel: ObservableObject {
         return charsArray
     }
 
-    func check(currentWord: String) -> Int {
-
-        guard validate(currentWord: currentWord) else {
-            return 0
+    func check(currentWord: String) throws -> Int {
+        do {
+            try validate(currentWord: currentWord)
+        } catch {
+            throw error
         }
 
         var charsFromBaseWord = changeWordToChars(currentWord: baseWord)
@@ -74,24 +79,21 @@ class GameViewModel: ObservableObject {
                 charsFromBaseWord.remove(at: indexChar)
 
             } else {
-                print("из этих букв нельзя составить слово")
-                return 0
+                throw WordError.wrongWord
             }
         }
 
         guard resultWord == currentWord.uppercased() else {
-            print("слова не совпдают после логики проверки на совбадение букв")
-            return 0
+            fatalError("Слова не совпдают после логики проверки на совпадение букв !")
         }
-
         appendWordToGame(word: resultWord)
         addPointsToPlayer(count: resultWord.count)
         switchedPlayer()
-
         return resultWord.count
     }
 
-// MARK: - Private func
+
+    // MARK: - Private func
     private func appendWordToGame(word: String) {
         wordsInGame.append(word)
     }

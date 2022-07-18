@@ -12,7 +12,6 @@ struct StartView: View {
     @State var nameFirstPlayer = ""
     @State var nameSecondPlayer = ""
     @State var isAlertPresent = false
-
     @State var isShowedGame = false
 
     var body: some View {
@@ -40,7 +39,7 @@ struct StartView: View {
                 }
             }, label: {
                 Text("Старт")
-                    .font(.custom("AvenirNext-bold", size: 30))
+                    .font(.custom("AvenirNext-bold", size: 25))
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -60,8 +59,12 @@ struct StartView: View {
         })
         .fullScreenCover(isPresented: $isShowedGame,
                          content: {
-            let player1 = Player(name: nameFirstPlayer)
-            let player2 = Player(name: nameSecondPlayer)
+            let firstPlayerName = nameFirstPlayer == "" ? "Игрок №1" : nameFirstPlayer
+            let secondPlayerName = nameSecondPlayer == "" ? "Игрок №2" : nameSecondPlayer
+
+            let player1 = Player(name: firstPlayerName)
+            let player2 = Player(name: secondPlayerName)
+            
             let gameViewModel = GameViewModel(player1: player1, player2: player2, baseWord: bigWord)
             GameView(viewModel: gameViewModel)
         })

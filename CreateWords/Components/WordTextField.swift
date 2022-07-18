@@ -13,7 +13,7 @@ struct WordTextField: View {
     
     var body: some View {
         TextField(placeholder, text: word)
-            .font(.title2)
+            .font(.subheadline)
             .padding()
             .background(.white)
     }
