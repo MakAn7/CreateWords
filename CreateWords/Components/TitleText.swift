@@ -17,7 +17,8 @@ struct TitleText: View {
             .cornerRadius(20)
             .frame(maxWidth: .infinity)
             .foregroundColor(.yellow)
-            .background(Color("FirstPlayer"))
+            .background(Color("FirstPlayer")
+            )
     }
 }
 

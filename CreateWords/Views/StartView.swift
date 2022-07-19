@@ -50,7 +50,10 @@ struct StartView: View {
             })
             Spacer()
         }
-        .background(Image("BGRedBlue"))
+        .background(
+            Image("BGRedBlue")
+                .scaledToFill()
+        )
         .padding(.top,5)
         .alert("Слово короткое,введите не менее 8 букв .",
                isPresented: $isAlertPresent,

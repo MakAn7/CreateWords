@@ -19,25 +19,28 @@ struct GameView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Spacer()
                 Button(action: {
                     confermPresent.toggle()
                 }, label: {
-                    Text("Выход")
-                        .font(.custom("AvenirNext-bold", size: 20))
-                        .foregroundColor(.white)
-                    
+                    Image(systemName: "chevron.backward")
+                        .padding()
+                        .foregroundColor(.black)
+                        .font(.headline)
+                        .background(Color.red)
+                        .clipShape(Circle())
                 })
                     .padding(2)
-                    .background(Color("SecondPlayer"))
                     .cornerRadius(12)
-                    .padding(.trailing, 10)
+                    .padding(.leading, 15)
+                Spacer()
             }
             
             Text("\(viewModel.baseWord)")
                 .padding(.horizontal, 10)
                 .font(.custom("AvenirNext-bold", size: 30))
-            
+                .background(LinearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .topTrailing)
+                                .cornerRadius(12)
+                )
             
             VStack(alignment: .center, spacing: 20) {
                 HStack(alignment: .center, spacing: 20) {
@@ -101,7 +104,7 @@ struct GameView: View {
                     .frame(maxWidth: .infinity)
                     .background(Color("FirstPlayer"))
                     .cornerRadius(12)
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, 30)
             })
             
             List {
@@ -115,7 +118,10 @@ struct GameView: View {
             .listStyle(.plain)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .background(Image("BGRedBlue"))
+        .background(
+            Image("BGRedBlue")
+                .scaledToFill()
+        )
         .confirmationDialog(
             "Вы точно хотите завершить игру ?",
             isPresented: $confermPresent,
