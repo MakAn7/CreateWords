@@ -105,7 +105,12 @@ struct GameView: View {
             })
             
             List {
-                
+                ForEach(0..<viewModel.wordsInGame.count,
+                        id: \.description, content: {
+                    WordCell(word: viewModel.wordsInGame[$0])
+                        .background($0 % 2 == 0 ? Color("FirstPlayer") : Color("SecondPlayer"))
+                        .listRowInsets(EdgeInsets())
+                })
             }
             .listStyle(.plain)
             .frame(maxWidth: .infinity, maxHeight: .infinity)

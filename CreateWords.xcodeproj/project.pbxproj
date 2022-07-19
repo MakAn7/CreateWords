@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2B4426B2886F76C00E891C6 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B4426A2886F76C00E891C6 /* WordCell.swift */; };
 		E2E6E6DC28819F2800C7C191 /* CreateWordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6E6DB28819F2800C7C191 /* CreateWordsApp.swift */; };
 		E2E6E6DE28819F2800C7C191 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6E6DD28819F2800C7C191 /* StartView.swift */; };
 		E2E6E6E028819F2900C7C191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E6E6DF28819F2900C7C191 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2B4426A2886F76C00E891C6 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		E2E6E6D828819F2800C7C191 /* CreateWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E6E6DB28819F2800C7C191 /* CreateWordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWordsApp.swift; sourceTree = "<group>"; };
 		E2E6E6DD28819F2800C7C191 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				E2E6E6DD28819F2800C7C191 /* StartView.swift */,
 				E2E6E6EE2881B36100C7C191 /* GameView.swift */,
+				E2B4426A2886F76C00E891C6 /* WordCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				E2E6E6DC28819F2800C7C191 /* CreateWordsApp.swift in Sources */,
 				E2E6E6ED2881AF0100C7C191 /* WordTextField.swift in Sources */,
 				E2E6E6F328842EC800C7C191 /* Player.swift in Sources */,
+				E2B4426B2886F76C00E891C6 /* WordCell.swift in Sources */,
 				E2E6E6EF2881B36100C7C191 /* GameView.swift in Sources */,
 				E2E6E6F528842FA200C7C191 /* GameViewModel.swift in Sources */,
 			);
